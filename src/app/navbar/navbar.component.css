@@ -1,6 +1,8 @@
 .navbar{
     height: 10vh;
-    background-color: black;
+    background-color:coral;
+    color: black;
+    font-weight: 900;
 }
 .logo{
     height: 100%;
@@ -14,7 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 100px;
   
 }
 a{

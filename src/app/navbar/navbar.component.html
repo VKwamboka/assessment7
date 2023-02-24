@@ -2,6 +2,8 @@
     <div class="links">
         <a routerLink="/">AllParcels</a>
         <a routerLink="/addparcel">Add Parcel</a>
+        <!-- <a routerLink="/login">Logout</a> -->
+        <a *ngIf="loginservice.isLoggedIn" (click)="loginservice.logout()">Logout</a>
     </div>
 </div>
 

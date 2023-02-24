@@ -1,13 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Parcel } from '../interface';
+import { ParcelsService } from '../services/parcel/parcels.service';
 
 @Component({
   selector: 'app-add-parcel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './add-parcel.component.html',
   styleUrls: ['./add-parcel.component.css']
 })
-export class AddParcelComponent {
+export class AddParcelComponent implements OnInit{
+  constructor( private fb: FormBuilder, private parcelService:ParcelsService) {
+        
+  }
+  addParcelForm!:FormGroup
+  ngOnInit(): void {
+    this.addParcelForm= this.fb.group({
+      name:[null, Validators.required],
+      email:[null, Validators.required],
+      Destination:[null, Validators.required],
+      
+    })
+  }
+
+  addParcels(){
+    let parcel:Parcel= {...this.addParcelForm.value, id:Math.floor(Math.random() *10000)};
+    this.parcelService.addParcels(parcel)
+  }
 
 }

@@ -20,7 +20,7 @@ export class AddParcelComponent implements OnInit{
   ngOnInit(): void {
     this.addParcelForm= this.fb.group({
       name:[null, Validators.required],
-      email:[null, Validators.required],
+      email:[null, Validators.required, Validators.email],
       Destination:[null, Validators.required],
       
     })

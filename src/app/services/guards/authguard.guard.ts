@@ -13,7 +13,6 @@ constructor(private logonSErvice:LoginService, private router:Router){}
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this.logonSErvice.getAuthStatus().then((status:boolean)=>{
         if(status){
-          // this.router.navigate(['/'])
           return true
         }else{
           alert("please login to continue")

@@ -3,11 +3,16 @@
     padding: 20px;
     margin-left: 30%;
     background-color: coral;
+    margin-top: 50px;
 }
 form{
     display: flex;
     flex-direction: column;
     gap: 50px;
+}
+span{
+    text-align: center;
+    color: red;
 }
 .input{
     display: flex;

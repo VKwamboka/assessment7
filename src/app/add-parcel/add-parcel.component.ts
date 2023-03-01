@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Parcel } from '../interface';
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-parcel.component.css']
 })
 export class AddParcelComponent implements OnInit{
+    @Input() editparcel: any;
   constructor( private fb: FormBuilder, private parcelService:ParcelsService,private router:Router) {
         
   }
@@ -31,5 +32,18 @@ export class AddParcelComponent implements OnInit{
     this.parcelService.addParcels(parcel)
     this.router.navigate(['/'])
   }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['editparcel']) {
+      const user = changes['editparcel'].currentValue;
+      this.addParcelForm.patchValue({
+        name: this.editparcel.name,
+        email: this.editparcel.email,
+        Destination: this.editparcel.Destination
+      });
+    }
+  }
+
+  // <button (click)="updateUser()">Update User</button>
 
 }

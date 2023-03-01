@@ -6,7 +6,17 @@
             <label for="name">Name</label>
             <input type="text" formControlName="name">
          </div>
+         <!-- <div *ngIf="addParcelForm.controls['name'].invalid && (addParcelForm.controls['name'].dirty || addParcelForm.controls['name'].touched)" class="alert">
+
+            <div *ngIf="addParcelForm.controls['name'].errors.required">
+
+            Please enter name
+
+          </div>
+
+        </div> -->
     
+        <span *ngIf="!addParcelForm.controls['email'].valid &&  addParcelForm.controls['email'].touched" class="error">Please enter a Valid Email </span>
          <div class="input">
             <label for="name">Email</label>
             <input type="text" formControlName="email">
